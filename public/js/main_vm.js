@@ -1,6 +1,6 @@
 // imports always go first - if we're importing anything
 import ChatMessage from "./modules/ChatMessage.js"
-
+ 
 const socket = io();
 
 function setUserId({sID, message}) {
@@ -10,7 +10,7 @@ function setUserId({sID, message}) {
 }
 
 function runDisconnectMessage(packet) {
-    debugger;
+    //sdebugger;
     console.log(packet);
 }
 
@@ -49,7 +49,8 @@ const vm = new Vue({
             })
 
             this.message = "";
-        }
+        },
+
     },
 
     components: {
@@ -63,5 +64,6 @@ const vm = new Vue({
 
 // some event handling -> these events are coming from the server
 socket.addEventListener('connected', setUserId);
+// socket.addEventListener('connected', connectMessage);
 socket.addEventListener('user_disconnect', runDisconnectMessage);
 socket.addEventListener('new_message', appendNewMessage);
