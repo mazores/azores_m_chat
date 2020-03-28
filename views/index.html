@@ -5,18 +5,16 @@
 	<meta charset="UTF-8">
 	<title>Socket IO Chat with Node!</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link href="emojipicker.css" rel="stylesheet" type="text/css" />
 	<script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
 	<main id="app">
 		<section class="form-container">
-			<label for="nickname">Your Nickname (optional)</label>
-			<input type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
-
-			<form>
-				<label for="message">Something to say?</label>
-				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
+			<form class="form"> 
+				<input v-model="nickName" type="text" id="nickname" class="nickname" placeholder="Name">
+				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea" placeholder="Type your message here..."></textarea>
 				<input @click.prevent="dispatchMessage" type="submit"> <!-- .prevent prevents default behaviour -->
 			</form>
 		</section>

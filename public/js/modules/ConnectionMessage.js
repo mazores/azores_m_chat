@@ -16,5 +16,6 @@ export default {
         return { 
             matchedID: this.$parent.socketID == this.msg.id
         }
-    }
+    },
+
 }

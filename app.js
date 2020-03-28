@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 
+
 //socket io's variable to import; pulling in from node module so u can use it
 const io = require('socket.io')(); // instantiate the library right away with the () method -> makes it run
 
@@ -23,9 +24,14 @@ const server = app.listen(port, () => {
 // we need to tell socket.io to use server above. Just use this mailbox to send message above
 // attach socket.io
 io.attach(server);
+
 io.on('connection', function(socket) {
+
     console.log('user connected');
-    socket.emit('connected', {sID: `${socket.id}`, message: 'new connection'});
+    socket.emit('connected', {
+        sID: `${socket.id}`,
+        message: `new connection`;
+    });
 
     // listen for an incoming message from a user (socket refers to an individual user)
     // msg is the incoming message fom that user
@@ -42,6 +48,6 @@ io.on('connection', function(socket) {
         console.log('a user disconnected');
 
         message = `${socket.id} has left the  chat!`;
-        io.emit('user_disconnect', message);
+        io.broadcast.emit('user_disconnect', message);
     })
 })
