@@ -9,7 +9,7 @@
   "author": "TVR",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jquery": "^3.4.1",
     "node-emoji": "^1.10.0",
     "rm-emoji-picker": "^0.4.0",
